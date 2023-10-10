@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="mythsearcher.mythsearcher.AppCtrl">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="744.0" styleClass="mainPane" stylesheets="@../../CSS/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mythsearcher.mythsearcher.AppCtrl">
+   <children>
+      <Line endX="-2.000030517578125" endY="356.20001220703125" layoutX="450.0" layoutY="103.0" startX="-2.000030517578125" startY="-79.80000305175781" />
+      <ImageView fitHeight="312.0" fitWidth="447.0" layoutY="172.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/ui/tentacleBG.png" />
+         </image>
+      </ImageView>
+      <ListView fx:id="MythosList" layoutX="464.0" layoutY="90.0" prefHeight="369.0" prefWidth="268.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </ListView>
+      <Label alignment="CENTER" layoutX="464.0" layoutY="23.0" prefHeight="54.0" prefWidth="268.0" styleClass="titlelbl" text="Ultimos mitos descubiertos" wrapText="true" />
+      <Button fx:id="CloseBtn" layoutX="715.0" layoutY="1.0" mnemonicParsing="false" onAction="#OnClickClose" prefHeight="26.0" prefWidth="30.0" styleClass="closebtn" text="X" underline="true" />
+      <ImageView fitHeight="89.0" fitWidth="92.0" layoutX="37.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/ui/pfp.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="154.0" layoutY="50.0" prefHeight="26.0" prefWidth="238.0" styleClass="welcomelbl" text="Bienvenido," />
+      <Label layoutX="154.0" layoutY="90.0" prefHeight="14.0" prefWidth="162.0" styleClass="titlelbl" text="Buscador #123421" />
+      <ImageView fitHeight="131.0" fitWidth="133.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/ui/frame.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="AddBtn" layoutX="65.0" layoutY="172.0" mnemonicParsing="false" onAction="#OnClickAdd" prefHeight="109.0" prefWidth="121.0" styleClass="mainbtn" text="Añadir mito" wrapText="true">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="ModBtn" layoutX="250.0" layoutY="172.0" mnemonicParsing="false" onAction="#OnClickMod" prefHeight="109.0" prefWidth="121.0" styleClass="mainbtn" text="Modificar mito" wrapText="true">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="EraseBtn" layoutX="65.0" layoutY="312.0" mnemonicParsing="false" onAction="#OnClickErase" prefHeight="109.0" prefWidth="121.0" styleClass="mainbtn" text="Borrar mito" wrapText="true">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="ListBtn" layoutX="250.0" layoutY="312.0" mnemonicParsing="false" onAction="#OnClickList" prefHeight="109.0" prefWidth="121.0" styleClass="mainbtn" text="Lista de mitos" wrapText="true">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
