@@ -28,7 +28,8 @@ public class EraseCtrl {
 
     @FXML
     void OnClickClose(ActionEvent event) {
-
+        Stage stage = (Stage) this.CloseBtn.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
