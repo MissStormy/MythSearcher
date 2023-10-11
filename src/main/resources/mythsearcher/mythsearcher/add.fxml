@@ -21,42 +21,42 @@
             <Image url="@../../images/ui/tentacleBG.png" />
          </image>
       </ImageView>
-      <Button layoutX="712.0" layoutY="2.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="32.0" styleClass="closebtn" text="X" underline="true" />
-      <ListView layoutX="463.0" layoutY="53.0" prefHeight="406.0" prefWidth="266.0">
+      <Button fx:id="CloseBtn" layoutX="712.0" layoutY="2.0" mnemonicParsing="false" onAction="#OnClickClose" prefHeight="26.0" prefWidth="32.0" styleClass="closebtn" text="X" underline="true" />
+      <ListView fx:id="MythList" layoutX="463.0" layoutY="53.0" prefHeight="406.0" prefWidth="266.0">
          <effect>
             <DropShadow />
          </effect>
       </ListView>
       <Label layoutX="32.0" layoutY="35.0" prefHeight="53.0" prefWidth="253.0" styleClass="welcomelbl" text="Añadir mito" />
       <Label layoutX="32.0" layoutY="82.0" prefHeight="26.0" prefWidth="383.0" styleClass="titlelbl" text="Haz crecer la lista mas allá de tu cordura" />
-      <TextField layoutX="35.0" layoutY="150.0" prefHeight="26.0" prefWidth="227.0" promptText="Nombre del mito">
+      <TextField fx:id="Nametxt" layoutX="35.0" layoutY="150.0" prefHeight="26.0" prefWidth="227.0" promptText="Nombre del mito">
          <effect>
             <InnerShadow />
          </effect>
       </TextField>
-      <ComboBox layoutX="280.0" layoutY="150.0" prefHeight="26.0" prefWidth="150.0" promptText="Clase" />
-      <ComboBox layoutX="34.0" layoutY="214.0" prefWidth="150.0" promptText="Genero" />
-      <TextField layoutX="211.0" layoutY="214.0" prefHeight="26.0" prefWidth="227.0" promptText="Lugar de origen">
+      <ComboBox fx:id="ClassCmb" layoutX="280.0" layoutY="150.0" prefHeight="26.0" prefWidth="150.0" promptText="Clase" />
+      <ComboBox fx:id="GenderCmb" layoutX="34.0" layoutY="214.0" prefWidth="150.0" promptText="Genero" />
+      <TextField fx:id="Origintxt" layoutX="211.0" layoutY="214.0" prefHeight="26.0" prefWidth="227.0" promptText="Lugar de origen">
          <effect>
             <InnerShadow />
          </effect>
       </TextField>
-      <TextField layoutX="36.0" layoutY="272.0" prefHeight="72.0" prefWidth="397.0" promptText="Biografia">
+      <TextField fx:id="Biotxt" layoutX="36.0" layoutY="272.0" prefHeight="72.0" prefWidth="397.0" promptText="Biografia">
          <effect>
             <InnerShadow />
          </effect>
       </TextField>
-      <Button layoutX="80.0" layoutY="378.0" mnemonicParsing="false" styleClass="menubtn" text="Guardar">
+      <Button fx:id="SaveBtn" layoutX="80.0" layoutY="378.0" mnemonicParsing="false" onAction="#OnClickSave" styleClass="menubtn" text="Guardar">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="207.0" layoutY="378.0" mnemonicParsing="false" styleClass="menubtn" text="Limpiar">
+      <Button fx:id="CleanBtn" layoutX="207.0" layoutY="378.0" mnemonicParsing="false" onAction="#OnClickClean" styleClass="menubtn" text="Limpiar">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="325.0" layoutY="378.0" mnemonicParsing="false" styleClass="menubtn" text="Cancelar">
+      <Button fx:id="CancelBtn" layoutX="325.0" layoutY="378.0" mnemonicParsing="false" onAction="#OnClickCancel" styleClass="menubtn" text="Cancelar">
          <effect>
             <DropShadow />
          </effect>
