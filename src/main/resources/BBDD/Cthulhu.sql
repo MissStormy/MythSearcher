@@ -11,10 +11,11 @@ Nombre varchar(50),
 Tipo enum('Primigenio', 'Dios Exterior', 'Monstruo'),
 Genero enum('Masculino', 'Femenino', 'Otro'),
 Origen varchar(50),
+Bio varchar(1000),
 Imagen varchar(60)
 );
 INSERT INTO Primigenios VALUES 
-(1, "Cthulhu", "Primigenio","Masculino","Vhoorl",""),
-(2, "Nyarlathotep", "Dios Exterior","Otro","Desconocido",""),
-(3, "Azathoth", "Dios Exterior","Otro","Corte de Azathoth","");
+(1, "Cthulhu", "Primigenio","Masculino","Vhoorl","",""),
+(2, "Nyarlathotep", "Dios Exterior","Otro","Desconocido","",""),
+(3, "Azathoth", "Dios Exterior","Otro","Corte de Azathoth","","");
 

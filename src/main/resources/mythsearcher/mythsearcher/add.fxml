@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
-<AnchorPane prefHeight="487.0" prefWidth="744.0" styleClass="mainPane" stylesheets="@../../CSS/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mythsearcher.mythsearcher.AddCtrl">
+<AnchorPane prefHeight="487.0" prefWidth="744.0" styleClass="mainPane" stylesheets="@../../CSS/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mythsearcher.mythsearcher.AddCtrl">
    <children>
       <Line endX="-2.000030517578125" endY="356.20001220703125" layoutX="450.0" layoutY="103.0" startX="-2.000030517578125" startY="-79.80000305175781" />
       <ImageView fitHeight="296.0" fitWidth="447.0" layoutY="190.0" opacity="0.39" pickOnBounds="true">
@@ -61,5 +60,6 @@
             <DropShadow />
          </effect>
       </Button>
+      <Button fx:id="VolverBtn" layoutY="2.0" mnemonicParsing="false" onAction="#OnClickVolver" styleClass="closebtn" text="Volver" />
    </children>
 </AnchorPane>
