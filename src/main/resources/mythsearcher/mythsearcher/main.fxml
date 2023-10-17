@@ -3,14 +3,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="744.0" styleClass="mainPane" stylesheets="@../../CSS/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mythsearcher.mythsearcher.AppCtrl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="744.0" styleClass="mainPane" stylesheets="@../../CSS/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mythsearcher.mythsearcher.AppCtrl">
    <children>
       <Line endX="-2.000030517578125" endY="356.20001220703125" layoutX="450.0" layoutY="103.0" startX="-2.000030517578125" startY="-79.80000305175781" />
       <ImageView fitHeight="312.0" fitWidth="447.0" layoutY="172.0" pickOnBounds="true">
@@ -57,5 +58,11 @@
             <DropShadow />
          </effect>
       </Button>
+      <TableView fx:id="TbMythos" layoutX="464.0" layoutY="90.0" prefHeight="369.0" prefWidth="268.0">
+        <columns>
+          <TableColumn fx:id="TbcMythos1" prefWidth="133.0" text="Nombre" />
+          <TableColumn fx:id="TbcMythos2" prefWidth="134.0" text="Tipo" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

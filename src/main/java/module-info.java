@@ -6,5 +6,6 @@ module mythsearcher.mythsearcher {
     requires java.sql;
 
     opens mythsearcher.mythsearcher to javafx.fxml;
+    opens mythsearcher.mythsearcher.domain to javafx.base;
     exports mythsearcher.mythsearcher;
 }
