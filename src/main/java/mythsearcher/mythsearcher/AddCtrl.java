@@ -3,6 +3,7 @@ package mythsearcher.mythsearcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,8 +15,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AddCtrl {
+public class AddCtrl implements Initializable {
     @FXML
     private TextField Biotxt;
 
@@ -48,7 +51,10 @@ public class AddCtrl {
     @FXML
     private Button VolverBtn;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
     @FXML
     void OnClickCancel(ActionEvent event) {
 
@@ -83,4 +89,6 @@ public class AddCtrl {
         Stage stagePrincipal = (Stage) VolverBtn.getScene().getWindow();
         stagePrincipal.close();
     }
+
+
 }

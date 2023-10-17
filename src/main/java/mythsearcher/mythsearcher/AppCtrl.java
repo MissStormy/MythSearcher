@@ -79,25 +79,7 @@ public class AppCtrl implements Initializable {
         ObservableList<Mytho> listaMythos = FXCollections.observableArrayList(mythos);
         TbMythos.setItems(listaMythos);
     }
-    /*public void cargarDatos(){
 
-        //MythosList.getItems().clear();
-
-        try {
-
-            //Creamos el array donde guardar los datos
-            //List<Mytho> mythos = mythosDAO.obtenerMythos();
-
-            //System.out.println("Número de elementos en la lista: " + mythos.size());
-            //MythosList.setItems(FXCollections.observableList(mythos));
-            //System.out.println("Beep");
-        } catch (SQLException sqle) {
-            AlertTemp.mostrarError("Error cargando los datos de la aplicación");
-        } catch (Exception e){
-            System.out.println(e);
-        }
-
-    }*/
     @FXML
     void OnClickAdd(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("add.fxml"));
