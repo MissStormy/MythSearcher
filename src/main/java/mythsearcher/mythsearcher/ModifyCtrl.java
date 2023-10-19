@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ModifyCtrl implements Initializable {
+    //Este controlador maneja las modificaciones, el usuario elige el registro
+    //Y cambia los datos que desee
     @FXML
     private TextField Biotxt;
 
@@ -132,7 +134,7 @@ public class ModifyCtrl implements Initializable {
         Stage stage = (Stage) this.CloseBtn.getScene().getWindow();
         stage.close();
     }
-
+    //Es parecido a add.fxml, pero aqui usamos modificarMytho()
     @FXML
     void OnClickSave(ActionEvent event) throws SQLException {
 
@@ -155,6 +157,8 @@ public class ModifyCtrl implements Initializable {
 
         reloadTable();
     }
+    //Recogemos los valores que el usuario ha seleccionado y los mostramos en las
+    //Cajas para que sea mas sencillo cambiarlos
     public void cargarMytho(Mytho mytho){
         Nametxt.setText(mytho.getNombre());
         ClassCmb.setValue(mytho.getTipo());

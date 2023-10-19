@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ListCtrl implements Initializable {
+    //Este controlador maneja la vista de lista de los registros al completo
     @FXML
     private Button CloseBtn;
     @FXML
@@ -62,6 +63,7 @@ public class ListCtrl implements Initializable {
 
         System.out.println(System.getProperty("user.home"));
     }
+    //Simplemente mostramos todos los registros, no hace nada mas
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

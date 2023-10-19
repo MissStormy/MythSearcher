@@ -13,8 +13,9 @@ import java.util.List;
 import java.util.Properties;
 
 public class MythosDAO {
+    //Clase de conexion
     private Connection conexion;
-
+    //Al final he usado el sistema sin el archivo R
     public void conectar() throws ClassNotFoundException, SQLException, IOException {
         Properties properties= new Properties();
         String host="";
@@ -53,7 +54,9 @@ public class MythosDAO {
     public void desconectar() throws SQLException {
         conexion.close();
     }
-
+    //A partir de aqui, todos los metodos que conlleven la introduccion de datos
+    //Desde un textfield estan protegidos de un ataque de inyeccion SQL con
+    //la sentencia "PreparedStatement"
     public void guardarMytho(Mytho mytho) throws SQLException {
         String sql = "INSERT INTO mythos (nombre, tipo, genero, origen) VALUES (?, ?, ?, ?)";
 

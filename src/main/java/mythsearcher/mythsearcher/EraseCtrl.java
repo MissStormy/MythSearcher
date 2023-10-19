@@ -24,6 +24,10 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EraseCtrl implements Initializable {
+    //Este controlador maneja la pantalla de borrado, el sistema es simple,
+    //El usuario pulsa sobre la lista el registro que quiere borrar y despues
+    //Sobre el gran boton en medio de la pantalla, se pedira confirmacion antes
+    //De borrar cualquier registro
     @FXML
     private Button CloseBtn;
 
@@ -41,6 +45,7 @@ public class EraseCtrl implements Initializable {
     @FXML
     private TableColumn<?,?> TbcMythos2;
     private MythosDAO mythosDAO;
+    //Conexion con BBDD
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.TbcMythos1.setCellValueFactory(new PropertyValueFactory("nombre"));
@@ -60,7 +65,7 @@ public class EraseCtrl implements Initializable {
         Stage stage = (Stage) this.CloseBtn.getScene().getWindow();
         stage.close();
     }
-
+    //Controlador de conexion
     public EraseCtrl(){
         mythosDAO = new MythosDAO();
 
@@ -76,6 +81,7 @@ public class EraseCtrl implements Initializable {
 
         System.out.println(System.getProperty("user.home"));
     }
+    //Se recoge el registro que el usuario ha pulsado y se borra tras una confirmacion
     @FXML
     void OnClickErase(ActionEvent event) {
         Mytho mytho = TbMythos.getSelectionModel().getSelectedItem();

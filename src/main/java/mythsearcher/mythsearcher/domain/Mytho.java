@@ -11,7 +11,7 @@ public class Mytho {
 
     //private String imagen;
 
-    //Constructor
+    //Constructores
     public Mytho(){}
 
     public Mytho(int id, String nombre, String tipo, String genero, String origen, String bio) {
@@ -38,7 +38,7 @@ public class Mytho {
         this.origen = origen;
 
     }
-
+    //Getters y setters
     public int getId() {
         return id;
     }

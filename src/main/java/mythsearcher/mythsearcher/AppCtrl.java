@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class AppCtrl implements Initializable {
+    //Este es el controlador de la pantalla principal, desde aqui salen las otras cuatro pantallas
+    //Y cuenta con una TableView para poder ver los mitos desde el principio
     @FXML
     private Button AddBtn;
 
@@ -48,6 +50,7 @@ public class AppCtrl implements Initializable {
     private TableColumn<?,?> TbcMythos2;
 
     private MythosDAO mythosDAO;
+    //Conexion con BBDD
     public AppCtrl(){
         mythosDAO = new MythosDAO();
 
@@ -63,6 +66,7 @@ public class AppCtrl implements Initializable {
 
         System.out.println(System.getProperty("user.home"));
     }
+    //Inicializamos la TableView
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.TbcMythos1.setCellValueFactory(new PropertyValueFactory("nombre"));
@@ -78,7 +82,8 @@ public class AppCtrl implements Initializable {
         TbMythos.setItems(listaMythos);
     }
 
-
+    //Con este boton vamos a la pantalla add.fxml, en cuanto arranque la siguiente pantalla
+    //La principal se cierra para no gastar recursos
     @FXML
     void OnClickAdd(ActionEvent event) throws IOException {
         //AppCtrl controller = new AppCtrl();
@@ -97,13 +102,13 @@ public class AppCtrl implements Initializable {
         Stage stagePrincipal = (Stage) AddBtn.getScene().getWindow();
         stagePrincipal.close();
     }
-
+    //Un boton simple para cerrar la ventana
     @FXML
     void OnClickClose(ActionEvent event) {
         Stage stage = (Stage) this.CloseBtn.getScene().getWindow();
         stage.close();
     }
-
+    //Con este boton vamos a la pantalla erase.fxml
     @FXML
     void OnClickErase(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("erase.fxml"));
@@ -118,7 +123,7 @@ public class AppCtrl implements Initializable {
         Stage stagePrincipal = (Stage) EraseBtn.getScene().getWindow();
         stagePrincipal.close();
     }
-
+    //Con este boton vamos a la pantalla list.fxml
     @FXML
     void OnClickList(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("list.fxml"));
@@ -133,7 +138,7 @@ public class AppCtrl implements Initializable {
         Stage stagePrincipal = (Stage) EraseBtn.getScene().getWindow();
         stagePrincipal.close();
     }
-
+    //Con este vamos a la pantalla modify.fxml
     @FXML
     void OnClickMod(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("modify.fxml"));

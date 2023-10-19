@@ -32,9 +32,9 @@ public class App extends Application {
         //Con esto se deberian cargar los datos de la BBDD,
         //pero dice que es NULL
         fxmlLoader.setController(controller);
-        System.out.println("Beep");
+        //System.out.println("Beep");
         //controller.cargarDatos();
-        System.out.println("Beep");
+        //System.out.println("Beep");
 
 
         stage.initStyle(StageStyle.TRANSPARENT);
