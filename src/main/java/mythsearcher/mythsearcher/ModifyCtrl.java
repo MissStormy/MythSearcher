@@ -19,6 +19,7 @@ import mythsearcher.mythsearcher.utils.AlertTemp;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -134,6 +135,7 @@ public class ModifyCtrl implements Initializable {
 
     @FXML
     void OnClickSave(ActionEvent event) throws SQLException {
+
         String nombre = Nametxt.getText();
         if(nombre.equals("")){
             AlertTemp.mostrarError("El nombre es obligatorio");

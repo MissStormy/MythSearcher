@@ -57,6 +57,7 @@ public class MythosDAO {
     public void guardarMytho(Mytho mytho) throws SQLException {
         String sql = "INSERT INTO mythos (nombre, tipo, genero, origen) VALUES (?, ?, ?, ?)";
 
+        //Esto evita los ataques de inyeccion SQL
         PreparedStatement sentencia = conexion.prepareStatement(sql);
         sentencia.setString(1, mytho.getNombre());
         sentencia.setString(2, mytho.getTipo());
