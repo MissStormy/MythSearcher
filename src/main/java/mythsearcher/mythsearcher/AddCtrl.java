@@ -1,21 +1,25 @@
 package mythsearcher.mythsearcher;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import mythsearcher.mythsearcher.domain.Mytho;
+import mythsearcher.mythsearcher.utils.AlertTemp;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddCtrl implements Initializable {
@@ -26,7 +30,8 @@ public class AddCtrl implements Initializable {
     private Button CancelBtn;
 
     @FXML
-    private ComboBox<?> ClassCmb;
+    private ComboBox<String> ClassCmb;
+    ObservableList<String> classes = FXCollections.observableArrayList("Primigenio", "Dios Exterior", "Monstruo");
 
     @FXML
     private Button CleanBtn;
@@ -35,7 +40,8 @@ public class AddCtrl implements Initializable {
     private Button CloseBtn;
 
     @FXML
-    private ComboBox<?> GenderCmb;
+    private ComboBox<String> GenderCmb;
+    ObservableList<String> genders = FXCollections.observableArrayList("Femenino", "Masculino", "Otro");
 
     @FXML
     private ListView<?> MythList;
@@ -50,19 +56,75 @@ public class AddCtrl implements Initializable {
     private Button SaveBtn;
     @FXML
     private Button VolverBtn;
+    @FXML
+    private TableView<Mytho> TbMythos;
+
+    @FXML
+    private TableColumn<?, ?> TbcMythos1;
+
+    @FXML
+    private TableColumn<?, ?> TbcMythos2;
+    private MythosDAO mythosDAO;
+    public AddCtrl(){
+        mythosDAO = new MythosDAO();
+
+        try {
+            mythosDAO.conectar();
+        } catch (SQLException sqle) {
+            AlertTemp.mostrarError("Error al conectar con la base de datos");
+        } catch (ClassNotFoundException cnfe) {
+            AlertTemp.mostrarError("Error al iniciar la aplicación");
+        } catch (IOException ioe) {
+            AlertTemp.mostrarError("Error al cargar la configuración");
+        }
+
+        System.out.println(System.getProperty("user.home"));
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        GenderCmb.setItems(genders);
+        GenderCmb.getSelectionModel().selectFirst();
+        ClassCmb.setItems(classes);
+        ClassCmb.getSelectionModel().selectFirst();
 
+        this.TbcMythos1.setCellValueFactory(new PropertyValueFactory("nombre"));
+        this.TbcMythos2.setCellValueFactory(new PropertyValueFactory("tipo"));
+
+        List<Mytho> mythos = null;
+        try {
+            mythos = mythosDAO.obtenerMythos();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ObservableList<Mytho> listaMythos = FXCollections.observableArrayList(mythos);
+        TbMythos.setItems(listaMythos);
+    }
+    public void reloadTable(){
+        List<Mytho> mythos = null;
+        try {
+            mythos = mythosDAO.obtenerMythos();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ObservableList<Mytho> listaMythos = FXCollections.observableArrayList(mythos);
+        TbMythos.setItems(listaMythos);
     }
     @FXML
     void OnClickCancel(ActionEvent event) {
-
+        AlertTemp.mostrarWarning("Se van a borrar todos los datos");
+        limpiarTexto();
     }
 
     @FXML
     void OnClickClean(ActionEvent event) {
+        limpiarTexto();
+    }
 
+    private void limpiarTexto(){
+        Nametxt.setText("");
+        Origintxt.setText("");
+        Biotxt.setText("");
     }
 
     @FXML
@@ -72,7 +134,25 @@ public class AddCtrl implements Initializable {
     }
 
     @FXML
-    void OnClickSave(ActionEvent event) {
+    void OnClickSave(ActionEvent event) throws SQLException {
+        String nombre = Nametxt.getText();
+        if(nombre.equals("")){
+            AlertTemp.mostrarError("El nombre es obligatorio");
+            return;
+        }
+        String tipo = ClassCmb.getSelectionModel().getSelectedItem();
+        String genero = GenderCmb.getSelectionModel().getSelectedItem();
+
+        String origen = Origintxt.getText();
+        String bio = Biotxt.getText();
+        //System.out.println(nombre);
+        System.out.println(tipo);
+        System.out.println(genero);
+        //System.out.println(origen);
+        Mytho mytho = new Mytho(nombre, tipo, genero, origen, bio);
+        mythosDAO.guardarMytho(mytho);
+
+        reloadTable();
 
     }
     @FXML

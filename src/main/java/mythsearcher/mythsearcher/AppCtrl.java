@@ -39,8 +39,6 @@ public class AppCtrl implements Initializable {
     private Button ModBtn;
 
     @FXML
-    private ListView<Mytho> MythosList;
-    @FXML
     private TableView<Mytho> TbMythos;
 
     @FXML
@@ -49,7 +47,7 @@ public class AppCtrl implements Initializable {
     @FXML
     private TableColumn<?,?> TbcMythos2;
 
-    private final MythosDAO mythosDAO;
+    private MythosDAO mythosDAO;
     public AppCtrl(){
         mythosDAO = new MythosDAO();
 
@@ -80,12 +78,17 @@ public class AppCtrl implements Initializable {
         TbMythos.setItems(listaMythos);
     }
 
+
     @FXML
     void OnClickAdd(ActionEvent event) throws IOException {
+        //AppCtrl controller = new AppCtrl();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("add.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+
+        //controller.cargarTabla();
+
         stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
@@ -117,13 +120,33 @@ public class AppCtrl implements Initializable {
     }
 
     @FXML
-    void OnClickList(ActionEvent event) {
+    void OnClickList(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("list.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
 
+        Stage stagePrincipal = (Stage) EraseBtn.getScene().getWindow();
+        stagePrincipal.close();
     }
 
     @FXML
-    void OnClickMod(ActionEvent event) {
+    void OnClickMod(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("modify.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
 
+        Stage stagePrincipal = (Stage) EraseBtn.getScene().getWindow();
+        stagePrincipal.close();
     }
 
 

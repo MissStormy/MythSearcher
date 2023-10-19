@@ -22,6 +22,22 @@ public class Mytho {
         this.origen = origen;
         this.bio = bio;
     }
+    public Mytho(String nombre, String tipo, String genero, String origen, String bio) {
+
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.genero = genero;
+        this.origen = origen;
+        this.bio = bio;
+    }
+    public Mytho(String nombre, String tipo, String genero, String origen) {
+
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.genero = genero;
+        this.origen = origen;
+
+    }
 
     public int getId() {
         return id;
