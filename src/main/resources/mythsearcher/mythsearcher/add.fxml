@@ -4,6 +4,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -61,5 +63,11 @@
          </effect>
       </Button>
       <Button fx:id="VolverBtn" layoutY="2.0" mnemonicParsing="false" onAction="#OnClickVolver" styleClass="closebtn" text="Volver" />
+      <TableView fx:id="TbMythos" layoutX="463.0" layoutY="50.0" prefHeight="406.0" prefWidth="266.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
